@@ -71,4 +71,4 @@ docker exec -it lab_attacker /bin/bash
 
 🛡️ Técnico Superior en Redes Informáticas
 
-🎓 Estudiante en Diplomado en Administración de Redes Linux, Ciberseguridad y Hacking Ético
+🎓 Estudiante en Diplomado en Administración de Redes Linux con Orientación en Ciberseguridad y Ethical Hacking con Kali Linux.
