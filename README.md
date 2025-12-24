@@ -1,4 +1,4 @@
-#  Dockerized Ethical Hacking Lab: OWASP Juice Shop + Kali Linux
+#  Ethical Hacking: OWASP Juice Shop + Kali Linux
 
 Un entorno de laboratorio controlado, seguro y portátil para prácticas de Ethical Hacking y Pentesting Web. Este proyecto despliega automáticamente una víctima vulnerable (OWASP Juice Shop) y una máquina atacante (Kali Linux) en una red aislada utilizando Docker.
 
@@ -29,16 +29,17 @@ Necesitas tener instalado en tu sistema:
 1.  **Clonar este repositorio:**
     
     git clone https://github.com/Chelo2025/labhack.git
+    
     cd labhack
     
 
-2.  **Crear el directorio para persistencia:**
+3.  **Crear el directorio para persistencia:**
     El contenedor de Kali guarda los reportes en un volumen local. Crea la carpeta antes de iniciar:
     
     mkdir mis-reportes
     
 
-3.  **Iniciar el laboratorio:**
+4.  **Iniciar el laboratorio:**
     Ejecuta el siguiente comando para descargar las imágenes y levantar los servicios en segundo plano:
     
     docker-compose up -d
@@ -58,3 +59,16 @@ Kali Linux se ejecuta en modo interactivo pero sin interfaz gráfica (headless) 
 
 
 docker exec -it lab_attacker /bin/bash
+
+
+---
+
+## Autor
+
+### Marcelo Martinez - Chelo2025
+
+🎓 Estudiante de Licenciatura en Tecnologías Digitales
+
+🛡️ Técnico Superior en Redes Informáticas
+
+🎓 Estudiante en Diplomado en Administración de Redes Linux, Ciberseguridad y Hacking Ético
