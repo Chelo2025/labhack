@@ -4,23 +4,18 @@ services:
     image: bkimminich/juice-shop
     container_name: lab_victim
     restart: always
-    
-    # Mantenemos esta seguridad que es muy efectiva
     security_opt:
       - no-new-privileges:true 
-
     ports:
       - "3000:3000"
     networks:
       - hacking-net
-
-    # --- PERSISTENCIA ---
-    # Esto guarda el progreso en una carpeta local llamada 'juice-data'
+      
+    # --- CAMBIO: VOLUMEN NOMBRADO ---
+    # Usamos un volumen gestionado por Docker para no borrar archivos internos
     volumes:
-      - ./juice-data:/juice-shop/data
+      - juice_shop_data:/juice-shop/data
     
-    # --- PROTECCIÓN DEL HOST ---
-    # Esto sigue protegiendo tu hardware de sobrecargas.
     deploy:
       resources:
         limits:
@@ -33,21 +28,15 @@ services:
     container_name: lab_attacker
     tty: true
     command: /bin/bash
-    
-    # Seguridad básica
     security_opt:
       - no-new-privileges:true
-    
-    # Permisos necesarios para herramientas de hacking
     cap_add:
       - NET_RAW
       - NET_ADMIN
-    
     networks:
       - hacking-net
     volumes:
       - ./mis-reportes:/root/reportes:rw
-    
     deploy:
       resources:
         limits:
@@ -57,3 +46,7 @@ services:
 networks:
   hacking-net:
     driver: bridge
+
+# --- NUEVO BLOQUE AL FINAL ---
+volumes:
+  juice_shop_data:
