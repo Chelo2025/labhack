@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # --- LA VÍCTIMA (OWASP Juice Shop) ---
   victim-juice:
