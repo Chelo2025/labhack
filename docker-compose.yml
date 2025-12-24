@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # --- LA VÍCTIMA (OWASP Juice Shop) ---
+  victim-juice:
+    image: bkimminich/juice-shop
+    container_name: lab_victim
+    restart: always
+    
+    # Mantenemos esta seguridad que es muy efectiva
+    security_opt:
+      - no-new-privileges:true 
+
+    ports:
+      - "3000:3000"
+    networks:
+      - hacking-net
+    
+    # --- PROTECCIÓN DEL HOST ---
+    # Esto sigue protegiendo tu hardware de sobrecargas.
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 600M
+
+  # --- EL ATACANTE (Kali Linux) ---
+  attacker-kali:
+    image: kalilinux/kali-rolling
+    container_name: lab_attacker
+    tty: true
+    command: /bin/bash
+    
+    # Seguridad básica
+    security_opt:
+      - no-new-privileges:true
+    
+    # Permisos necesarios para herramientas de hacking
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    
+    networks:
+      - hacking-net
+    volumes:
+      - ./mis-reportes:/root/reportes:rw
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+
+networks:
+  hacking-net:
+    driver: bridge
