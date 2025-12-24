@@ -15,6 +15,11 @@ services:
       - "3000:3000"
     networks:
       - hacking-net
+
+    # --- PERSISTENCIA ---
+    # Esto guarda el progreso en una carpeta local llamada 'juice-data'
+    volumes:
+      - ./juice-data:/juice-shop/data
     
     # --- PROTECCIÓN DEL HOST ---
     # Esto sigue protegiendo tu hardware de sobrecargas.
