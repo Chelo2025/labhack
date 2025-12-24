@@ -42,7 +42,7 @@ Necesitas tener instalado en tu sistema:
 4.  **Iniciar el laboratorio:**
     Ejecuta el siguiente comando para descargar las imágenes y levantar los servicios en segundo plano:
     
-    docker-compose up -d
+    docker compose up -d
     
 
 ---
